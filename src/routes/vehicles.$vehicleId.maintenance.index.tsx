@@ -3,7 +3,7 @@ import { PageTitle, StatusBadge, EmptyState, pageHead } from "@/components/vhs/u
 import { useVehicle } from "@/lib/use-vehicle";
 import { byVehicle, maintenance } from "@/lib/mock";
 
-export const dueTone = { overdue: "service", "due-soon": "monitor", upcoming: "good", unknown: "unknown" } as const;
+const dueTone = { overdue: "service", "due-soon": "monitor", upcoming: "good", unknown: "unknown" } as const;
 
 export const Route = createFileRoute("/vehicles/$vehicleId/maintenance/")({
   head: () => pageHead("Maintenance", "What's due, why, and how VHS knows."),

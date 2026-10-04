@@ -20,8 +20,16 @@ import { Route as VerifyEmailRouteImport } from './routes/verify-email'
 import { Route as VehiclesVehicleIdRouteImport } from './routes/vehicles.$vehicleId'
 import { Route as VehiclesAddRouteImport } from './routes/vehicles.add'
 import { Route as VehiclesVehicleIdIndexRouteImport } from './routes/vehicles.$vehicleId.index'
+import { Route as VehiclesVehicleIdCheckRouteImport } from './routes/vehicles.$vehicleId.check'
+import { Route as VehiclesVehicleIdRecallsRouteImport } from './routes/vehicles.$vehicleId.recalls'
+import { Route as VehiclesVehicleIdChangesNewRouteImport } from './routes/vehicles.$vehicleId.changes.new'
+import { Route as VehiclesVehicleIdDocumentsIndexRouteImport } from './routes/vehicles.$vehicleId.documents.index'
+import { Route as VehiclesVehicleIdDocumentsUploadRouteImport } from './routes/vehicles.$vehicleId.documents.upload'
 import { Route as VehiclesVehicleIdHealthIndexRouteImport } from './routes/vehicles.$vehicleId.health.index'
 import { Route as VehiclesVehicleIdHealthComponentIdRouteImport } from './routes/vehicles.$vehicleId.health.$componentId'
+import { Route as VehiclesVehicleIdMaintenanceIndexRouteImport } from './routes/vehicles.$vehicleId.maintenance.index'
+import { Route as VehiclesVehicleIdMaintenanceItemIdRouteImport } from './routes/vehicles.$vehicleId.maintenance.$itemId'
+import { Route as VehiclesVehicleIdSymptomsSymptomIdRouteImport } from './routes/vehicles.$vehicleId.symptoms.$symptomId'
 import { Route as VehiclesVehicleIdTimelineIndexRouteImport } from './routes/vehicles.$vehicleId.timeline.index'
 import { Route as VehiclesVehicleIdTimelineEventIdRouteImport } from './routes/vehicles.$vehicleId.timeline.$eventId'
 
@@ -80,6 +88,35 @@ const VehiclesVehicleIdIndexRoute = VehiclesVehicleIdIndexRouteImport.update({
   path: '/',
   getParentRoute: () => VehiclesVehicleIdRoute,
 } as any)
+const VehiclesVehicleIdCheckRoute = VehiclesVehicleIdCheckRouteImport.update({
+  id: '/check',
+  path: '/check',
+  getParentRoute: () => VehiclesVehicleIdRoute,
+} as any)
+const VehiclesVehicleIdRecallsRoute =
+  VehiclesVehicleIdRecallsRouteImport.update({
+    id: '/recalls',
+    path: '/recalls',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdChangesNewRoute =
+  VehiclesVehicleIdChangesNewRouteImport.update({
+    id: '/changes/new',
+    path: '/changes/new',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdDocumentsIndexRoute =
+  VehiclesVehicleIdDocumentsIndexRouteImport.update({
+    id: '/documents/',
+    path: '/documents/',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdDocumentsUploadRoute =
+  VehiclesVehicleIdDocumentsUploadRouteImport.update({
+    id: '/documents/upload',
+    path: '/documents/upload',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
 const VehiclesVehicleIdHealthIndexRoute =
   VehiclesVehicleIdHealthIndexRouteImport.update({
     id: '/health/',
@@ -90,6 +127,24 @@ const VehiclesVehicleIdHealthComponentIdRoute =
   VehiclesVehicleIdHealthComponentIdRouteImport.update({
     id: '/health/$componentId',
     path: '/health/$componentId',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdMaintenanceIndexRoute =
+  VehiclesVehicleIdMaintenanceIndexRouteImport.update({
+    id: '/maintenance/',
+    path: '/maintenance/',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdMaintenanceItemIdRoute =
+  VehiclesVehicleIdMaintenanceItemIdRouteImport.update({
+    id: '/maintenance/$itemId',
+    path: '/maintenance/$itemId',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdSymptomsSymptomIdRoute =
+  VehiclesVehicleIdSymptomsSymptomIdRouteImport.update({
+    id: '/symptoms/$symptomId',
+    path: '/symptoms/$symptomId',
     getParentRoute: () => VehiclesVehicleIdRoute,
   } as any)
 const VehiclesVehicleIdTimelineIndexRoute =
@@ -116,10 +171,18 @@ export interface FileRoutesByFullPath {
   '/verify-email': typeof VerifyEmailRoute
   '/vehicles/$vehicleId': typeof VehiclesVehicleIdRouteWithChildren
   '/vehicles/add': typeof VehiclesAddRoute
+  '/vehicles/$vehicleId/check': typeof VehiclesVehicleIdCheckRoute
+  '/vehicles/$vehicleId/recalls': typeof VehiclesVehicleIdRecallsRoute
   '/vehicles/$vehicleId/': typeof VehiclesVehicleIdIndexRoute
+  '/vehicles/$vehicleId/changes/new': typeof VehiclesVehicleIdChangesNewRoute
+  '/vehicles/$vehicleId/documents/upload': typeof VehiclesVehicleIdDocumentsUploadRoute
   '/vehicles/$vehicleId/health/$componentId': typeof VehiclesVehicleIdHealthComponentIdRoute
+  '/vehicles/$vehicleId/maintenance/$itemId': typeof VehiclesVehicleIdMaintenanceItemIdRoute
+  '/vehicles/$vehicleId/symptoms/$symptomId': typeof VehiclesVehicleIdSymptomsSymptomIdRoute
   '/vehicles/$vehicleId/timeline/$eventId': typeof VehiclesVehicleIdTimelineEventIdRoute
+  '/vehicles/$vehicleId/documents/': typeof VehiclesVehicleIdDocumentsIndexRoute
   '/vehicles/$vehicleId/health/': typeof VehiclesVehicleIdHealthIndexRoute
+  '/vehicles/$vehicleId/maintenance/': typeof VehiclesVehicleIdMaintenanceIndexRoute
   '/vehicles/$vehicleId/timeline/': typeof VehiclesVehicleIdTimelineIndexRoute
 }
 export interface FileRoutesByTo {
@@ -132,10 +195,18 @@ export interface FileRoutesByTo {
   '/sign-in': typeof SignInRoute
   '/verify-email': typeof VerifyEmailRoute
   '/vehicles/add': typeof VehiclesAddRoute
+  '/vehicles/$vehicleId/check': typeof VehiclesVehicleIdCheckRoute
+  '/vehicles/$vehicleId/recalls': typeof VehiclesVehicleIdRecallsRoute
   '/vehicles/$vehicleId': typeof VehiclesVehicleIdIndexRoute
+  '/vehicles/$vehicleId/changes/new': typeof VehiclesVehicleIdChangesNewRoute
+  '/vehicles/$vehicleId/documents/upload': typeof VehiclesVehicleIdDocumentsUploadRoute
   '/vehicles/$vehicleId/health/$componentId': typeof VehiclesVehicleIdHealthComponentIdRoute
+  '/vehicles/$vehicleId/maintenance/$itemId': typeof VehiclesVehicleIdMaintenanceItemIdRoute
+  '/vehicles/$vehicleId/symptoms/$symptomId': typeof VehiclesVehicleIdSymptomsSymptomIdRoute
   '/vehicles/$vehicleId/timeline/$eventId': typeof VehiclesVehicleIdTimelineEventIdRoute
+  '/vehicles/$vehicleId/documents': typeof VehiclesVehicleIdDocumentsIndexRoute
   '/vehicles/$vehicleId/health': typeof VehiclesVehicleIdHealthIndexRoute
+  '/vehicles/$vehicleId/maintenance': typeof VehiclesVehicleIdMaintenanceIndexRoute
   '/vehicles/$vehicleId/timeline': typeof VehiclesVehicleIdTimelineIndexRoute
 }
 export interface FileRoutesById {
@@ -150,10 +221,18 @@ export interface FileRoutesById {
   '/verify-email': typeof VerifyEmailRoute
   '/vehicles/$vehicleId': typeof VehiclesVehicleIdRouteWithChildren
   '/vehicles/add': typeof VehiclesAddRoute
+  '/vehicles/$vehicleId/check': typeof VehiclesVehicleIdCheckRoute
+  '/vehicles/$vehicleId/recalls': typeof VehiclesVehicleIdRecallsRoute
   '/vehicles/$vehicleId/': typeof VehiclesVehicleIdIndexRoute
+  '/vehicles/$vehicleId/changes/new': typeof VehiclesVehicleIdChangesNewRoute
+  '/vehicles/$vehicleId/documents/upload': typeof VehiclesVehicleIdDocumentsUploadRoute
   '/vehicles/$vehicleId/health/$componentId': typeof VehiclesVehicleIdHealthComponentIdRoute
+  '/vehicles/$vehicleId/maintenance/$itemId': typeof VehiclesVehicleIdMaintenanceItemIdRoute
+  '/vehicles/$vehicleId/symptoms/$symptomId': typeof VehiclesVehicleIdSymptomsSymptomIdRoute
   '/vehicles/$vehicleId/timeline/$eventId': typeof VehiclesVehicleIdTimelineEventIdRoute
+  '/vehicles/$vehicleId/documents/': typeof VehiclesVehicleIdDocumentsIndexRoute
   '/vehicles/$vehicleId/health/': typeof VehiclesVehicleIdHealthIndexRoute
+  '/vehicles/$vehicleId/maintenance/': typeof VehiclesVehicleIdMaintenanceIndexRoute
   '/vehicles/$vehicleId/timeline/': typeof VehiclesVehicleIdTimelineIndexRoute
 }
 export interface FileRouteTypes {
@@ -169,10 +248,18 @@ export interface FileRouteTypes {
     | '/verify-email'
     | '/vehicles/$vehicleId'
     | '/vehicles/add'
+    | '/vehicles/$vehicleId/check'
+    | '/vehicles/$vehicleId/recalls'
     | '/vehicles/$vehicleId/'
+    | '/vehicles/$vehicleId/changes/new'
+    | '/vehicles/$vehicleId/documents/upload'
     | '/vehicles/$vehicleId/health/$componentId'
+    | '/vehicles/$vehicleId/maintenance/$itemId'
+    | '/vehicles/$vehicleId/symptoms/$symptomId'
     | '/vehicles/$vehicleId/timeline/$eventId'
+    | '/vehicles/$vehicleId/documents/'
     | '/vehicles/$vehicleId/health/'
+    | '/vehicles/$vehicleId/maintenance/'
     | '/vehicles/$vehicleId/timeline/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -185,10 +272,18 @@ export interface FileRouteTypes {
     | '/sign-in'
     | '/verify-email'
     | '/vehicles/add'
+    | '/vehicles/$vehicleId/check'
+    | '/vehicles/$vehicleId/recalls'
     | '/vehicles/$vehicleId'
+    | '/vehicles/$vehicleId/changes/new'
+    | '/vehicles/$vehicleId/documents/upload'
     | '/vehicles/$vehicleId/health/$componentId'
+    | '/vehicles/$vehicleId/maintenance/$itemId'
+    | '/vehicles/$vehicleId/symptoms/$symptomId'
     | '/vehicles/$vehicleId/timeline/$eventId'
+    | '/vehicles/$vehicleId/documents'
     | '/vehicles/$vehicleId/health'
+    | '/vehicles/$vehicleId/maintenance'
     | '/vehicles/$vehicleId/timeline'
   id:
     | '__root__'
@@ -202,10 +297,18 @@ export interface FileRouteTypes {
     | '/verify-email'
     | '/vehicles/$vehicleId'
     | '/vehicles/add'
+    | '/vehicles/$vehicleId/check'
+    | '/vehicles/$vehicleId/recalls'
     | '/vehicles/$vehicleId/'
+    | '/vehicles/$vehicleId/changes/new'
+    | '/vehicles/$vehicleId/documents/upload'
     | '/vehicles/$vehicleId/health/$componentId'
+    | '/vehicles/$vehicleId/maintenance/$itemId'
+    | '/vehicles/$vehicleId/symptoms/$symptomId'
     | '/vehicles/$vehicleId/timeline/$eventId'
+    | '/vehicles/$vehicleId/documents/'
     | '/vehicles/$vehicleId/health/'
+    | '/vehicles/$vehicleId/maintenance/'
     | '/vehicles/$vehicleId/timeline/'
   fileRoutesById: FileRoutesById
 }
@@ -301,6 +404,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VehiclesVehicleIdIndexRouteImport
       parentRoute: typeof VehiclesVehicleIdRoute
     }
+    '/vehicles/$vehicleId/check': {
+      id: '/vehicles/$vehicleId/check'
+      path: '/check'
+      fullPath: '/vehicles/$vehicleId/check'
+      preLoaderRoute: typeof VehiclesVehicleIdCheckRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/recalls': {
+      id: '/vehicles/$vehicleId/recalls'
+      path: '/recalls'
+      fullPath: '/vehicles/$vehicleId/recalls'
+      preLoaderRoute: typeof VehiclesVehicleIdRecallsRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/changes/new': {
+      id: '/vehicles/$vehicleId/changes/new'
+      path: '/changes/new'
+      fullPath: '/vehicles/$vehicleId/changes/new'
+      preLoaderRoute: typeof VehiclesVehicleIdChangesNewRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/documents/': {
+      id: '/vehicles/$vehicleId/documents/'
+      path: '/documents'
+      fullPath: '/vehicles/$vehicleId/documents/'
+      preLoaderRoute: typeof VehiclesVehicleIdDocumentsIndexRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/documents/upload': {
+      id: '/vehicles/$vehicleId/documents/upload'
+      path: '/documents/upload'
+      fullPath: '/vehicles/$vehicleId/documents/upload'
+      preLoaderRoute: typeof VehiclesVehicleIdDocumentsUploadRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
     '/vehicles/$vehicleId/health/': {
       id: '/vehicles/$vehicleId/health/'
       path: '/health'
@@ -313,6 +451,27 @@ declare module '@tanstack/react-router' {
       path: '/health/$componentId'
       fullPath: '/vehicles/$vehicleId/health/$componentId'
       preLoaderRoute: typeof VehiclesVehicleIdHealthComponentIdRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/maintenance/': {
+      id: '/vehicles/$vehicleId/maintenance/'
+      path: '/maintenance'
+      fullPath: '/vehicles/$vehicleId/maintenance/'
+      preLoaderRoute: typeof VehiclesVehicleIdMaintenanceIndexRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/maintenance/$itemId': {
+      id: '/vehicles/$vehicleId/maintenance/$itemId'
+      path: '/maintenance/$itemId'
+      fullPath: '/vehicles/$vehicleId/maintenance/$itemId'
+      preLoaderRoute: typeof VehiclesVehicleIdMaintenanceItemIdRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/symptoms/$symptomId': {
+      id: '/vehicles/$vehicleId/symptoms/$symptomId'
+      path: '/symptoms/$symptomId'
+      fullPath: '/vehicles/$vehicleId/symptoms/$symptomId'
+      preLoaderRoute: typeof VehiclesVehicleIdSymptomsSymptomIdRouteImport
       parentRoute: typeof VehiclesVehicleIdRoute
     }
     '/vehicles/$vehicleId/timeline/': {
@@ -333,19 +492,38 @@ declare module '@tanstack/react-router' {
 }
 
 interface VehiclesVehicleIdRouteChildren {
+  VehiclesVehicleIdCheckRoute: typeof VehiclesVehicleIdCheckRoute
+  VehiclesVehicleIdRecallsRoute: typeof VehiclesVehicleIdRecallsRoute
   VehiclesVehicleIdIndexRoute: typeof VehiclesVehicleIdIndexRoute
+  VehiclesVehicleIdChangesNewRoute: typeof VehiclesVehicleIdChangesNewRoute
+  VehiclesVehicleIdDocumentsUploadRoute: typeof VehiclesVehicleIdDocumentsUploadRoute
   VehiclesVehicleIdHealthComponentIdRoute: typeof VehiclesVehicleIdHealthComponentIdRoute
+  VehiclesVehicleIdMaintenanceItemIdRoute: typeof VehiclesVehicleIdMaintenanceItemIdRoute
+  VehiclesVehicleIdSymptomsSymptomIdRoute: typeof VehiclesVehicleIdSymptomsSymptomIdRoute
   VehiclesVehicleIdTimelineEventIdRoute: typeof VehiclesVehicleIdTimelineEventIdRoute
+  VehiclesVehicleIdDocumentsIndexRoute: typeof VehiclesVehicleIdDocumentsIndexRoute
   VehiclesVehicleIdHealthIndexRoute: typeof VehiclesVehicleIdHealthIndexRoute
+  VehiclesVehicleIdMaintenanceIndexRoute: typeof VehiclesVehicleIdMaintenanceIndexRoute
   VehiclesVehicleIdTimelineIndexRoute: typeof VehiclesVehicleIdTimelineIndexRoute
 }
 
 const VehiclesVehicleIdRouteChildren: VehiclesVehicleIdRouteChildren = {
+  VehiclesVehicleIdCheckRoute: VehiclesVehicleIdCheckRoute,
+  VehiclesVehicleIdRecallsRoute: VehiclesVehicleIdRecallsRoute,
   VehiclesVehicleIdIndexRoute: VehiclesVehicleIdIndexRoute,
+  VehiclesVehicleIdChangesNewRoute: VehiclesVehicleIdChangesNewRoute,
+  VehiclesVehicleIdDocumentsUploadRoute: VehiclesVehicleIdDocumentsUploadRoute,
   VehiclesVehicleIdHealthComponentIdRoute:
     VehiclesVehicleIdHealthComponentIdRoute,
+  VehiclesVehicleIdMaintenanceItemIdRoute:
+    VehiclesVehicleIdMaintenanceItemIdRoute,
+  VehiclesVehicleIdSymptomsSymptomIdRoute:
+    VehiclesVehicleIdSymptomsSymptomIdRoute,
   VehiclesVehicleIdTimelineEventIdRoute: VehiclesVehicleIdTimelineEventIdRoute,
+  VehiclesVehicleIdDocumentsIndexRoute: VehiclesVehicleIdDocumentsIndexRoute,
   VehiclesVehicleIdHealthIndexRoute: VehiclesVehicleIdHealthIndexRoute,
+  VehiclesVehicleIdMaintenanceIndexRoute:
+    VehiclesVehicleIdMaintenanceIndexRoute,
   VehiclesVehicleIdTimelineIndexRoute: VehiclesVehicleIdTimelineIndexRoute,
 }
 
