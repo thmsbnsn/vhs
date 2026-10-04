@@ -10,33 +10,419 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as CreateAccountRouteImport } from './routes/create-account'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as GarageRouteImport } from './routes/garage'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as SignInRouteImport } from './routes/sign-in'
+import { Route as VerifyEmailRouteImport } from './routes/verify-email'
+import { Route as ShareGrantTokenRouteImport } from './routes/share.$grantToken'
+import { Route as VehiclesVehicleIdRouteImport } from './routes/vehicles.$vehicleId'
+import { Route as VehiclesAddRouteImport } from './routes/vehicles.add'
+import { Route as ShareGrantTokenIndexRouteImport } from './routes/share.$grantToken.index'
+import { Route as VehiclesVehicleIdIndexRouteImport } from './routes/vehicles.$vehicleId.index'
+import { Route as VehiclesVehicleIdBaselineRouteImport } from './routes/vehicles.$vehicleId.baseline'
+import { Route as VehiclesVehicleIdCheckRouteImport } from './routes/vehicles.$vehicleId.check'
+import { Route as VehiclesVehicleIdMileageRouteImport } from './routes/vehicles.$vehicleId.mileage'
+import { Route as VehiclesVehicleIdProfileRouteImport } from './routes/vehicles.$vehicleId.profile'
+import { Route as VehiclesVehicleIdRecallsRouteImport } from './routes/vehicles.$vehicleId.recalls'
+import { Route as VehiclesVehicleIdSharesRouteImport } from './routes/vehicles.$vehicleId.shares'
+import { Route as VehiclesVehicleIdSummaryRouteImport } from './routes/vehicles.$vehicleId.summary'
+import { Route as VehiclesVehicleIdChangesNewRouteImport } from './routes/vehicles.$vehicleId.changes.new'
+import { Route as VehiclesVehicleIdDocumentsIndexRouteImport } from './routes/vehicles.$vehicleId.documents.index'
+import { Route as VehiclesVehicleIdDocumentsUploadRouteImport } from './routes/vehicles.$vehicleId.documents.upload'
+import { Route as VehiclesVehicleIdHealthIndexRouteImport } from './routes/vehicles.$vehicleId.health.index'
+import { Route as VehiclesVehicleIdHealthComponentIdRouteImport } from './routes/vehicles.$vehicleId.health.$componentId'
+import { Route as VehiclesVehicleIdMaintenanceIndexRouteImport } from './routes/vehicles.$vehicleId.maintenance.index'
+import { Route as VehiclesVehicleIdMaintenanceItemIdRouteImport } from './routes/vehicles.$vehicleId.maintenance.$itemId'
+import { Route as VehiclesVehicleIdSymptomsSymptomIdRouteImport } from './routes/vehicles.$vehicleId.symptoms.$symptomId'
+import { Route as VehiclesVehicleIdTimelineIndexRouteImport } from './routes/vehicles.$vehicleId.timeline.index'
+import { Route as VehiclesVehicleIdTimelineEventIdRouteImport } from './routes/vehicles.$vehicleId.timeline.$eventId'
+import { Route as ShareGrantTokenRecordsRecordTypeRecordIdRouteImport } from './routes/share.$grantToken.records.$recordType.$recordId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreateAccountRoute = CreateAccountRouteImport.update({
+  id: '/create-account',
+  path: '/create-account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GarageRoute = GarageRouteImport.update({
+  id: '/garage',
+  path: '/garage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignInRoute = SignInRouteImport.update({
+  id: '/sign-in',
+  path: '/sign-in',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerifyEmailRoute = VerifyEmailRouteImport.update({
+  id: '/verify-email',
+  path: '/verify-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShareGrantTokenRoute = ShareGrantTokenRouteImport.update({
+  id: '/share/$grantToken',
+  path: '/share/$grantToken',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VehiclesVehicleIdRoute = VehiclesVehicleIdRouteImport.update({
+  id: '/vehicles/$vehicleId',
+  path: '/vehicles/$vehicleId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VehiclesAddRoute = VehiclesAddRouteImport.update({
+  id: '/vehicles/add',
+  path: '/vehicles/add',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShareGrantTokenIndexRoute = ShareGrantTokenIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShareGrantTokenRoute,
+} as any)
+const VehiclesVehicleIdIndexRoute = VehiclesVehicleIdIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => VehiclesVehicleIdRoute,
+} as any)
+const VehiclesVehicleIdBaselineRoute =
+  VehiclesVehicleIdBaselineRouteImport.update({
+    id: '/baseline',
+    path: '/baseline',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdCheckRoute = VehiclesVehicleIdCheckRouteImport.update({
+  id: '/check',
+  path: '/check',
+  getParentRoute: () => VehiclesVehicleIdRoute,
+} as any)
+const VehiclesVehicleIdMileageRoute =
+  VehiclesVehicleIdMileageRouteImport.update({
+    id: '/mileage',
+    path: '/mileage',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdProfileRoute =
+  VehiclesVehicleIdProfileRouteImport.update({
+    id: '/profile',
+    path: '/profile',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdRecallsRoute =
+  VehiclesVehicleIdRecallsRouteImport.update({
+    id: '/recalls',
+    path: '/recalls',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdSharesRoute = VehiclesVehicleIdSharesRouteImport.update({
+  id: '/shares',
+  path: '/shares',
+  getParentRoute: () => VehiclesVehicleIdRoute,
+} as any)
+const VehiclesVehicleIdSummaryRoute =
+  VehiclesVehicleIdSummaryRouteImport.update({
+    id: '/summary',
+    path: '/summary',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdChangesNewRoute =
+  VehiclesVehicleIdChangesNewRouteImport.update({
+    id: '/changes/new',
+    path: '/changes/new',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdDocumentsIndexRoute =
+  VehiclesVehicleIdDocumentsIndexRouteImport.update({
+    id: '/documents/',
+    path: '/documents/',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdDocumentsUploadRoute =
+  VehiclesVehicleIdDocumentsUploadRouteImport.update({
+    id: '/documents/upload',
+    path: '/documents/upload',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdHealthIndexRoute =
+  VehiclesVehicleIdHealthIndexRouteImport.update({
+    id: '/health/',
+    path: '/health/',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdHealthComponentIdRoute =
+  VehiclesVehicleIdHealthComponentIdRouteImport.update({
+    id: '/health/$componentId',
+    path: '/health/$componentId',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdMaintenanceIndexRoute =
+  VehiclesVehicleIdMaintenanceIndexRouteImport.update({
+    id: '/maintenance/',
+    path: '/maintenance/',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdMaintenanceItemIdRoute =
+  VehiclesVehicleIdMaintenanceItemIdRouteImport.update({
+    id: '/maintenance/$itemId',
+    path: '/maintenance/$itemId',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdSymptomsSymptomIdRoute =
+  VehiclesVehicleIdSymptomsSymptomIdRouteImport.update({
+    id: '/symptoms/$symptomId',
+    path: '/symptoms/$symptomId',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdTimelineIndexRoute =
+  VehiclesVehicleIdTimelineIndexRouteImport.update({
+    id: '/timeline/',
+    path: '/timeline/',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdTimelineEventIdRoute =
+  VehiclesVehicleIdTimelineEventIdRouteImport.update({
+    id: '/timeline/$eventId',
+    path: '/timeline/$eventId',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const ShareGrantTokenRecordsRecordTypeRecordIdRoute =
+  ShareGrantTokenRecordsRecordTypeRecordIdRouteImport.update({
+    id: '/records/$recordType/$recordId',
+    path: '/records/$recordType/$recordId',
+    getParentRoute: () => ShareGrantTokenRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/create-account': typeof CreateAccountRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/garage': typeof GarageRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/sign-in': typeof SignInRoute
+  '/verify-email': typeof VerifyEmailRoute
+  '/share/$grantToken': typeof ShareGrantTokenRouteWithChildren
+  '/vehicles/$vehicleId': typeof VehiclesVehicleIdRouteWithChildren
+  '/vehicles/add': typeof VehiclesAddRoute
+  '/vehicles/$vehicleId/baseline': typeof VehiclesVehicleIdBaselineRoute
+  '/vehicles/$vehicleId/check': typeof VehiclesVehicleIdCheckRoute
+  '/vehicles/$vehicleId/mileage': typeof VehiclesVehicleIdMileageRoute
+  '/vehicles/$vehicleId/profile': typeof VehiclesVehicleIdProfileRoute
+  '/vehicles/$vehicleId/recalls': typeof VehiclesVehicleIdRecallsRoute
+  '/vehicles/$vehicleId/shares': typeof VehiclesVehicleIdSharesRoute
+  '/vehicles/$vehicleId/summary': typeof VehiclesVehicleIdSummaryRoute
+  '/share/$grantToken/': typeof ShareGrantTokenIndexRoute
+  '/vehicles/$vehicleId/': typeof VehiclesVehicleIdIndexRoute
+  '/vehicles/$vehicleId/changes/new': typeof VehiclesVehicleIdChangesNewRoute
+  '/vehicles/$vehicleId/documents/upload': typeof VehiclesVehicleIdDocumentsUploadRoute
+  '/vehicles/$vehicleId/health/$componentId': typeof VehiclesVehicleIdHealthComponentIdRoute
+  '/vehicles/$vehicleId/maintenance/$itemId': typeof VehiclesVehicleIdMaintenanceItemIdRoute
+  '/vehicles/$vehicleId/symptoms/$symptomId': typeof VehiclesVehicleIdSymptomsSymptomIdRoute
+  '/vehicles/$vehicleId/timeline/$eventId': typeof VehiclesVehicleIdTimelineEventIdRoute
+  '/vehicles/$vehicleId/documents/': typeof VehiclesVehicleIdDocumentsIndexRoute
+  '/vehicles/$vehicleId/health/': typeof VehiclesVehicleIdHealthIndexRoute
+  '/vehicles/$vehicleId/maintenance/': typeof VehiclesVehicleIdMaintenanceIndexRoute
+  '/vehicles/$vehicleId/timeline/': typeof VehiclesVehicleIdTimelineIndexRoute
+  '/share/$grantToken/records/$recordType/$recordId': typeof ShareGrantTokenRecordsRecordTypeRecordIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/create-account': typeof CreateAccountRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/garage': typeof GarageRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/sign-in': typeof SignInRoute
+  '/verify-email': typeof VerifyEmailRoute
+  '/vehicles/add': typeof VehiclesAddRoute
+  '/vehicles/$vehicleId/baseline': typeof VehiclesVehicleIdBaselineRoute
+  '/vehicles/$vehicleId/check': typeof VehiclesVehicleIdCheckRoute
+  '/vehicles/$vehicleId/mileage': typeof VehiclesVehicleIdMileageRoute
+  '/vehicles/$vehicleId/profile': typeof VehiclesVehicleIdProfileRoute
+  '/vehicles/$vehicleId/recalls': typeof VehiclesVehicleIdRecallsRoute
+  '/vehicles/$vehicleId/shares': typeof VehiclesVehicleIdSharesRoute
+  '/vehicles/$vehicleId/summary': typeof VehiclesVehicleIdSummaryRoute
+  '/share/$grantToken': typeof ShareGrantTokenIndexRoute
+  '/vehicles/$vehicleId': typeof VehiclesVehicleIdIndexRoute
+  '/vehicles/$vehicleId/changes/new': typeof VehiclesVehicleIdChangesNewRoute
+  '/vehicles/$vehicleId/documents/upload': typeof VehiclesVehicleIdDocumentsUploadRoute
+  '/vehicles/$vehicleId/health/$componentId': typeof VehiclesVehicleIdHealthComponentIdRoute
+  '/vehicles/$vehicleId/maintenance/$itemId': typeof VehiclesVehicleIdMaintenanceItemIdRoute
+  '/vehicles/$vehicleId/symptoms/$symptomId': typeof VehiclesVehicleIdSymptomsSymptomIdRoute
+  '/vehicles/$vehicleId/timeline/$eventId': typeof VehiclesVehicleIdTimelineEventIdRoute
+  '/vehicles/$vehicleId/documents': typeof VehiclesVehicleIdDocumentsIndexRoute
+  '/vehicles/$vehicleId/health': typeof VehiclesVehicleIdHealthIndexRoute
+  '/vehicles/$vehicleId/maintenance': typeof VehiclesVehicleIdMaintenanceIndexRoute
+  '/vehicles/$vehicleId/timeline': typeof VehiclesVehicleIdTimelineIndexRoute
+  '/share/$grantToken/records/$recordType/$recordId': typeof ShareGrantTokenRecordsRecordTypeRecordIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/create-account': typeof CreateAccountRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/garage': typeof GarageRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/sign-in': typeof SignInRoute
+  '/verify-email': typeof VerifyEmailRoute
+  '/share/$grantToken': typeof ShareGrantTokenRouteWithChildren
+  '/vehicles/$vehicleId': typeof VehiclesVehicleIdRouteWithChildren
+  '/vehicles/add': typeof VehiclesAddRoute
+  '/vehicles/$vehicleId/baseline': typeof VehiclesVehicleIdBaselineRoute
+  '/vehicles/$vehicleId/check': typeof VehiclesVehicleIdCheckRoute
+  '/vehicles/$vehicleId/mileage': typeof VehiclesVehicleIdMileageRoute
+  '/vehicles/$vehicleId/profile': typeof VehiclesVehicleIdProfileRoute
+  '/vehicles/$vehicleId/recalls': typeof VehiclesVehicleIdRecallsRoute
+  '/vehicles/$vehicleId/shares': typeof VehiclesVehicleIdSharesRoute
+  '/vehicles/$vehicleId/summary': typeof VehiclesVehicleIdSummaryRoute
+  '/share/$grantToken/': typeof ShareGrantTokenIndexRoute
+  '/vehicles/$vehicleId/': typeof VehiclesVehicleIdIndexRoute
+  '/vehicles/$vehicleId/changes/new': typeof VehiclesVehicleIdChangesNewRoute
+  '/vehicles/$vehicleId/documents/upload': typeof VehiclesVehicleIdDocumentsUploadRoute
+  '/vehicles/$vehicleId/health/$componentId': typeof VehiclesVehicleIdHealthComponentIdRoute
+  '/vehicles/$vehicleId/maintenance/$itemId': typeof VehiclesVehicleIdMaintenanceItemIdRoute
+  '/vehicles/$vehicleId/symptoms/$symptomId': typeof VehiclesVehicleIdSymptomsSymptomIdRoute
+  '/vehicles/$vehicleId/timeline/$eventId': typeof VehiclesVehicleIdTimelineEventIdRoute
+  '/vehicles/$vehicleId/documents/': typeof VehiclesVehicleIdDocumentsIndexRoute
+  '/vehicles/$vehicleId/health/': typeof VehiclesVehicleIdHealthIndexRoute
+  '/vehicles/$vehicleId/maintenance/': typeof VehiclesVehicleIdMaintenanceIndexRoute
+  '/vehicles/$vehicleId/timeline/': typeof VehiclesVehicleIdTimelineIndexRoute
+  '/share/$grantToken/records/$recordType/$recordId': typeof ShareGrantTokenRecordsRecordTypeRecordIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/account'
+    | '/create-account'
+    | '/forgot-password'
+    | '/garage'
+    | '/reset-password'
+    | '/sign-in'
+    | '/verify-email'
+    | '/share/$grantToken'
+    | '/vehicles/$vehicleId'
+    | '/vehicles/add'
+    | '/vehicles/$vehicleId/baseline'
+    | '/vehicles/$vehicleId/check'
+    | '/vehicles/$vehicleId/mileage'
+    | '/vehicles/$vehicleId/profile'
+    | '/vehicles/$vehicleId/recalls'
+    | '/vehicles/$vehicleId/shares'
+    | '/vehicles/$vehicleId/summary'
+    | '/share/$grantToken/'
+    | '/vehicles/$vehicleId/'
+    | '/vehicles/$vehicleId/changes/new'
+    | '/vehicles/$vehicleId/documents/upload'
+    | '/vehicles/$vehicleId/health/$componentId'
+    | '/vehicles/$vehicleId/maintenance/$itemId'
+    | '/vehicles/$vehicleId/symptoms/$symptomId'
+    | '/vehicles/$vehicleId/timeline/$eventId'
+    | '/vehicles/$vehicleId/documents/'
+    | '/vehicles/$vehicleId/health/'
+    | '/vehicles/$vehicleId/maintenance/'
+    | '/vehicles/$vehicleId/timeline/'
+    | '/share/$grantToken/records/$recordType/$recordId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/account'
+    | '/create-account'
+    | '/forgot-password'
+    | '/garage'
+    | '/reset-password'
+    | '/sign-in'
+    | '/verify-email'
+    | '/vehicles/add'
+    | '/vehicles/$vehicleId/baseline'
+    | '/vehicles/$vehicleId/check'
+    | '/vehicles/$vehicleId/mileage'
+    | '/vehicles/$vehicleId/profile'
+    | '/vehicles/$vehicleId/recalls'
+    | '/vehicles/$vehicleId/shares'
+    | '/vehicles/$vehicleId/summary'
+    | '/share/$grantToken'
+    | '/vehicles/$vehicleId'
+    | '/vehicles/$vehicleId/changes/new'
+    | '/vehicles/$vehicleId/documents/upload'
+    | '/vehicles/$vehicleId/health/$componentId'
+    | '/vehicles/$vehicleId/maintenance/$itemId'
+    | '/vehicles/$vehicleId/symptoms/$symptomId'
+    | '/vehicles/$vehicleId/timeline/$eventId'
+    | '/vehicles/$vehicleId/documents'
+    | '/vehicles/$vehicleId/health'
+    | '/vehicles/$vehicleId/maintenance'
+    | '/vehicles/$vehicleId/timeline'
+    | '/share/$grantToken/records/$recordType/$recordId'
+  id:
+    | '__root__'
+    | '/'
+    | '/account'
+    | '/create-account'
+    | '/forgot-password'
+    | '/garage'
+    | '/reset-password'
+    | '/sign-in'
+    | '/verify-email'
+    | '/share/$grantToken'
+    | '/vehicles/$vehicleId'
+    | '/vehicles/add'
+    | '/vehicles/$vehicleId/baseline'
+    | '/vehicles/$vehicleId/check'
+    | '/vehicles/$vehicleId/mileage'
+    | '/vehicles/$vehicleId/profile'
+    | '/vehicles/$vehicleId/recalls'
+    | '/vehicles/$vehicleId/shares'
+    | '/vehicles/$vehicleId/summary'
+    | '/share/$grantToken/'
+    | '/vehicles/$vehicleId/'
+    | '/vehicles/$vehicleId/changes/new'
+    | '/vehicles/$vehicleId/documents/upload'
+    | '/vehicles/$vehicleId/health/$componentId'
+    | '/vehicles/$vehicleId/maintenance/$itemId'
+    | '/vehicles/$vehicleId/symptoms/$symptomId'
+    | '/vehicles/$vehicleId/timeline/$eventId'
+    | '/vehicles/$vehicleId/documents/'
+    | '/vehicles/$vehicleId/health/'
+    | '/vehicles/$vehicleId/maintenance/'
+    | '/vehicles/$vehicleId/timeline/'
+    | '/share/$grantToken/records/$recordType/$recordId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRoute
+  CreateAccountRoute: typeof CreateAccountRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  GarageRoute: typeof GarageRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  SignInRoute: typeof SignInRoute
+  VerifyEmailRoute: typeof VerifyEmailRoute
+  ShareGrantTokenRoute: typeof ShareGrantTokenRouteWithChildren
+  VehiclesVehicleIdRoute: typeof VehiclesVehicleIdRouteWithChildren
+  VehiclesAddRoute: typeof VehiclesAddRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +434,295 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/create-account': {
+      id: '/create-account'
+      path: '/create-account'
+      fullPath: '/create-account'
+      preLoaderRoute: typeof CreateAccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/garage': {
+      id: '/garage'
+      path: '/garage'
+      fullPath: '/garage'
+      preLoaderRoute: typeof GarageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sign-in': {
+      id: '/sign-in'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof SignInRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verify-email': {
+      id: '/verify-email'
+      path: '/verify-email'
+      fullPath: '/verify-email'
+      preLoaderRoute: typeof VerifyEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/share/$grantToken': {
+      id: '/share/$grantToken'
+      path: '/share/$grantToken'
+      fullPath: '/share/$grantToken'
+      preLoaderRoute: typeof ShareGrantTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vehicles/$vehicleId': {
+      id: '/vehicles/$vehicleId'
+      path: '/vehicles/$vehicleId'
+      fullPath: '/vehicles/$vehicleId'
+      preLoaderRoute: typeof VehiclesVehicleIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vehicles/add': {
+      id: '/vehicles/add'
+      path: '/vehicles/add'
+      fullPath: '/vehicles/add'
+      preLoaderRoute: typeof VehiclesAddRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/share/$grantToken/': {
+      id: '/share/$grantToken/'
+      path: '/'
+      fullPath: '/share/$grantToken/'
+      preLoaderRoute: typeof ShareGrantTokenIndexRouteImport
+      parentRoute: typeof ShareGrantTokenRoute
+    }
+    '/vehicles/$vehicleId/': {
+      id: '/vehicles/$vehicleId/'
+      path: '/'
+      fullPath: '/vehicles/$vehicleId/'
+      preLoaderRoute: typeof VehiclesVehicleIdIndexRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/baseline': {
+      id: '/vehicles/$vehicleId/baseline'
+      path: '/baseline'
+      fullPath: '/vehicles/$vehicleId/baseline'
+      preLoaderRoute: typeof VehiclesVehicleIdBaselineRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/check': {
+      id: '/vehicles/$vehicleId/check'
+      path: '/check'
+      fullPath: '/vehicles/$vehicleId/check'
+      preLoaderRoute: typeof VehiclesVehicleIdCheckRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/mileage': {
+      id: '/vehicles/$vehicleId/mileage'
+      path: '/mileage'
+      fullPath: '/vehicles/$vehicleId/mileage'
+      preLoaderRoute: typeof VehiclesVehicleIdMileageRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/profile': {
+      id: '/vehicles/$vehicleId/profile'
+      path: '/profile'
+      fullPath: '/vehicles/$vehicleId/profile'
+      preLoaderRoute: typeof VehiclesVehicleIdProfileRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/recalls': {
+      id: '/vehicles/$vehicleId/recalls'
+      path: '/recalls'
+      fullPath: '/vehicles/$vehicleId/recalls'
+      preLoaderRoute: typeof VehiclesVehicleIdRecallsRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/shares': {
+      id: '/vehicles/$vehicleId/shares'
+      path: '/shares'
+      fullPath: '/vehicles/$vehicleId/shares'
+      preLoaderRoute: typeof VehiclesVehicleIdSharesRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/summary': {
+      id: '/vehicles/$vehicleId/summary'
+      path: '/summary'
+      fullPath: '/vehicles/$vehicleId/summary'
+      preLoaderRoute: typeof VehiclesVehicleIdSummaryRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/changes/new': {
+      id: '/vehicles/$vehicleId/changes/new'
+      path: '/changes/new'
+      fullPath: '/vehicles/$vehicleId/changes/new'
+      preLoaderRoute: typeof VehiclesVehicleIdChangesNewRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/documents/': {
+      id: '/vehicles/$vehicleId/documents/'
+      path: '/documents'
+      fullPath: '/vehicles/$vehicleId/documents/'
+      preLoaderRoute: typeof VehiclesVehicleIdDocumentsIndexRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/documents/upload': {
+      id: '/vehicles/$vehicleId/documents/upload'
+      path: '/documents/upload'
+      fullPath: '/vehicles/$vehicleId/documents/upload'
+      preLoaderRoute: typeof VehiclesVehicleIdDocumentsUploadRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/health/': {
+      id: '/vehicles/$vehicleId/health/'
+      path: '/health'
+      fullPath: '/vehicles/$vehicleId/health/'
+      preLoaderRoute: typeof VehiclesVehicleIdHealthIndexRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/health/$componentId': {
+      id: '/vehicles/$vehicleId/health/$componentId'
+      path: '/health/$componentId'
+      fullPath: '/vehicles/$vehicleId/health/$componentId'
+      preLoaderRoute: typeof VehiclesVehicleIdHealthComponentIdRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/maintenance/': {
+      id: '/vehicles/$vehicleId/maintenance/'
+      path: '/maintenance'
+      fullPath: '/vehicles/$vehicleId/maintenance/'
+      preLoaderRoute: typeof VehiclesVehicleIdMaintenanceIndexRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/maintenance/$itemId': {
+      id: '/vehicles/$vehicleId/maintenance/$itemId'
+      path: '/maintenance/$itemId'
+      fullPath: '/vehicles/$vehicleId/maintenance/$itemId'
+      preLoaderRoute: typeof VehiclesVehicleIdMaintenanceItemIdRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/symptoms/$symptomId': {
+      id: '/vehicles/$vehicleId/symptoms/$symptomId'
+      path: '/symptoms/$symptomId'
+      fullPath: '/vehicles/$vehicleId/symptoms/$symptomId'
+      preLoaderRoute: typeof VehiclesVehicleIdSymptomsSymptomIdRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/timeline/': {
+      id: '/vehicles/$vehicleId/timeline/'
+      path: '/timeline'
+      fullPath: '/vehicles/$vehicleId/timeline/'
+      preLoaderRoute: typeof VehiclesVehicleIdTimelineIndexRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/timeline/$eventId': {
+      id: '/vehicles/$vehicleId/timeline/$eventId'
+      path: '/timeline/$eventId'
+      fullPath: '/vehicles/$vehicleId/timeline/$eventId'
+      preLoaderRoute: typeof VehiclesVehicleIdTimelineEventIdRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/share/$grantToken/records/$recordType/$recordId': {
+      id: '/share/$grantToken/records/$recordType/$recordId'
+      path: '/records/$recordType/$recordId'
+      fullPath: '/share/$grantToken/records/$recordType/$recordId'
+      preLoaderRoute: typeof ShareGrantTokenRecordsRecordTypeRecordIdRouteImport
+      parentRoute: typeof ShareGrantTokenRoute
+    }
   }
 }
 
+interface ShareGrantTokenRouteChildren {
+  ShareGrantTokenIndexRoute: typeof ShareGrantTokenIndexRoute
+  ShareGrantTokenRecordsRecordTypeRecordIdRoute: typeof ShareGrantTokenRecordsRecordTypeRecordIdRoute
+}
+
+const ShareGrantTokenRouteChildren: ShareGrantTokenRouteChildren = {
+  ShareGrantTokenIndexRoute: ShareGrantTokenIndexRoute,
+  ShareGrantTokenRecordsRecordTypeRecordIdRoute:
+    ShareGrantTokenRecordsRecordTypeRecordIdRoute,
+}
+
+const ShareGrantTokenRouteWithChildren = ShareGrantTokenRoute._addFileChildren(
+  ShareGrantTokenRouteChildren,
+)
+
+interface VehiclesVehicleIdRouteChildren {
+  VehiclesVehicleIdBaselineRoute: typeof VehiclesVehicleIdBaselineRoute
+  VehiclesVehicleIdCheckRoute: typeof VehiclesVehicleIdCheckRoute
+  VehiclesVehicleIdMileageRoute: typeof VehiclesVehicleIdMileageRoute
+  VehiclesVehicleIdProfileRoute: typeof VehiclesVehicleIdProfileRoute
+  VehiclesVehicleIdRecallsRoute: typeof VehiclesVehicleIdRecallsRoute
+  VehiclesVehicleIdSharesRoute: typeof VehiclesVehicleIdSharesRoute
+  VehiclesVehicleIdSummaryRoute: typeof VehiclesVehicleIdSummaryRoute
+  VehiclesVehicleIdIndexRoute: typeof VehiclesVehicleIdIndexRoute
+  VehiclesVehicleIdChangesNewRoute: typeof VehiclesVehicleIdChangesNewRoute
+  VehiclesVehicleIdDocumentsUploadRoute: typeof VehiclesVehicleIdDocumentsUploadRoute
+  VehiclesVehicleIdHealthComponentIdRoute: typeof VehiclesVehicleIdHealthComponentIdRoute
+  VehiclesVehicleIdMaintenanceItemIdRoute: typeof VehiclesVehicleIdMaintenanceItemIdRoute
+  VehiclesVehicleIdSymptomsSymptomIdRoute: typeof VehiclesVehicleIdSymptomsSymptomIdRoute
+  VehiclesVehicleIdTimelineEventIdRoute: typeof VehiclesVehicleIdTimelineEventIdRoute
+  VehiclesVehicleIdDocumentsIndexRoute: typeof VehiclesVehicleIdDocumentsIndexRoute
+  VehiclesVehicleIdHealthIndexRoute: typeof VehiclesVehicleIdHealthIndexRoute
+  VehiclesVehicleIdMaintenanceIndexRoute: typeof VehiclesVehicleIdMaintenanceIndexRoute
+  VehiclesVehicleIdTimelineIndexRoute: typeof VehiclesVehicleIdTimelineIndexRoute
+}
+
+const VehiclesVehicleIdRouteChildren: VehiclesVehicleIdRouteChildren = {
+  VehiclesVehicleIdBaselineRoute: VehiclesVehicleIdBaselineRoute,
+  VehiclesVehicleIdCheckRoute: VehiclesVehicleIdCheckRoute,
+  VehiclesVehicleIdMileageRoute: VehiclesVehicleIdMileageRoute,
+  VehiclesVehicleIdProfileRoute: VehiclesVehicleIdProfileRoute,
+  VehiclesVehicleIdRecallsRoute: VehiclesVehicleIdRecallsRoute,
+  VehiclesVehicleIdSharesRoute: VehiclesVehicleIdSharesRoute,
+  VehiclesVehicleIdSummaryRoute: VehiclesVehicleIdSummaryRoute,
+  VehiclesVehicleIdIndexRoute: VehiclesVehicleIdIndexRoute,
+  VehiclesVehicleIdChangesNewRoute: VehiclesVehicleIdChangesNewRoute,
+  VehiclesVehicleIdDocumentsUploadRoute: VehiclesVehicleIdDocumentsUploadRoute,
+  VehiclesVehicleIdHealthComponentIdRoute:
+    VehiclesVehicleIdHealthComponentIdRoute,
+  VehiclesVehicleIdMaintenanceItemIdRoute:
+    VehiclesVehicleIdMaintenanceItemIdRoute,
+  VehiclesVehicleIdSymptomsSymptomIdRoute:
+    VehiclesVehicleIdSymptomsSymptomIdRoute,
+  VehiclesVehicleIdTimelineEventIdRoute: VehiclesVehicleIdTimelineEventIdRoute,
+  VehiclesVehicleIdDocumentsIndexRoute: VehiclesVehicleIdDocumentsIndexRoute,
+  VehiclesVehicleIdHealthIndexRoute: VehiclesVehicleIdHealthIndexRoute,
+  VehiclesVehicleIdMaintenanceIndexRoute:
+    VehiclesVehicleIdMaintenanceIndexRoute,
+  VehiclesVehicleIdTimelineIndexRoute: VehiclesVehicleIdTimelineIndexRoute,
+}
+
+const VehiclesVehicleIdRouteWithChildren =
+  VehiclesVehicleIdRoute._addFileChildren(VehiclesVehicleIdRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRoute,
+  CreateAccountRoute: CreateAccountRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  GarageRoute: GarageRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  SignInRoute: SignInRoute,
+  VerifyEmailRoute: VerifyEmailRoute,
+  ShareGrantTokenRoute: ShareGrantTokenRouteWithChildren,
+  VehiclesVehicleIdRoute: VehiclesVehicleIdRouteWithChildren,
+  VehiclesAddRoute: VehiclesAddRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
