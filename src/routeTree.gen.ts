@@ -17,11 +17,18 @@ import { Route as GarageRouteImport } from './routes/garage'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as SignInRouteImport } from './routes/sign-in'
 import { Route as VerifyEmailRouteImport } from './routes/verify-email'
+import { Route as ShareGrantTokenRouteImport } from './routes/share.$grantToken'
 import { Route as VehiclesVehicleIdRouteImport } from './routes/vehicles.$vehicleId'
 import { Route as VehiclesAddRouteImport } from './routes/vehicles.add'
+import { Route as ShareGrantTokenIndexRouteImport } from './routes/share.$grantToken.index'
 import { Route as VehiclesVehicleIdIndexRouteImport } from './routes/vehicles.$vehicleId.index'
+import { Route as VehiclesVehicleIdBaselineRouteImport } from './routes/vehicles.$vehicleId.baseline'
 import { Route as VehiclesVehicleIdCheckRouteImport } from './routes/vehicles.$vehicleId.check'
+import { Route as VehiclesVehicleIdMileageRouteImport } from './routes/vehicles.$vehicleId.mileage'
+import { Route as VehiclesVehicleIdProfileRouteImport } from './routes/vehicles.$vehicleId.profile'
 import { Route as VehiclesVehicleIdRecallsRouteImport } from './routes/vehicles.$vehicleId.recalls'
+import { Route as VehiclesVehicleIdSharesRouteImport } from './routes/vehicles.$vehicleId.shares'
+import { Route as VehiclesVehicleIdSummaryRouteImport } from './routes/vehicles.$vehicleId.summary'
 import { Route as VehiclesVehicleIdChangesNewRouteImport } from './routes/vehicles.$vehicleId.changes.new'
 import { Route as VehiclesVehicleIdDocumentsIndexRouteImport } from './routes/vehicles.$vehicleId.documents.index'
 import { Route as VehiclesVehicleIdDocumentsUploadRouteImport } from './routes/vehicles.$vehicleId.documents.upload'
@@ -32,6 +39,7 @@ import { Route as VehiclesVehicleIdMaintenanceItemIdRouteImport } from './routes
 import { Route as VehiclesVehicleIdSymptomsSymptomIdRouteImport } from './routes/vehicles.$vehicleId.symptoms.$symptomId'
 import { Route as VehiclesVehicleIdTimelineIndexRouteImport } from './routes/vehicles.$vehicleId.timeline.index'
 import { Route as VehiclesVehicleIdTimelineEventIdRouteImport } from './routes/vehicles.$vehicleId.timeline.$eventId'
+import { Route as ShareGrantTokenRecordsRecordTypeRecordIdRouteImport } from './routes/share.$grantToken.records.$recordType.$recordId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -73,6 +81,11 @@ const VerifyEmailRoute = VerifyEmailRouteImport.update({
   path: '/verify-email',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShareGrantTokenRoute = ShareGrantTokenRouteImport.update({
+  id: '/share/$grantToken',
+  path: '/share/$grantToken',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VehiclesVehicleIdRoute = VehiclesVehicleIdRouteImport.update({
   id: '/vehicles/$vehicleId',
   path: '/vehicles/$vehicleId',
@@ -83,20 +96,54 @@ const VehiclesAddRoute = VehiclesAddRouteImport.update({
   path: '/vehicles/add',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShareGrantTokenIndexRoute = ShareGrantTokenIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShareGrantTokenRoute,
+} as any)
 const VehiclesVehicleIdIndexRoute = VehiclesVehicleIdIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => VehiclesVehicleIdRoute,
 } as any)
+const VehiclesVehicleIdBaselineRoute =
+  VehiclesVehicleIdBaselineRouteImport.update({
+    id: '/baseline',
+    path: '/baseline',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
 const VehiclesVehicleIdCheckRoute = VehiclesVehicleIdCheckRouteImport.update({
   id: '/check',
   path: '/check',
   getParentRoute: () => VehiclesVehicleIdRoute,
 } as any)
+const VehiclesVehicleIdMileageRoute =
+  VehiclesVehicleIdMileageRouteImport.update({
+    id: '/mileage',
+    path: '/mileage',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdProfileRoute =
+  VehiclesVehicleIdProfileRouteImport.update({
+    id: '/profile',
+    path: '/profile',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
 const VehiclesVehicleIdRecallsRoute =
   VehiclesVehicleIdRecallsRouteImport.update({
     id: '/recalls',
     path: '/recalls',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdSharesRoute = VehiclesVehicleIdSharesRouteImport.update({
+  id: '/shares',
+  path: '/shares',
+  getParentRoute: () => VehiclesVehicleIdRoute,
+} as any)
+const VehiclesVehicleIdSummaryRoute =
+  VehiclesVehicleIdSummaryRouteImport.update({
+    id: '/summary',
+    path: '/summary',
     getParentRoute: () => VehiclesVehicleIdRoute,
   } as any)
 const VehiclesVehicleIdChangesNewRoute =
@@ -159,6 +206,12 @@ const VehiclesVehicleIdTimelineEventIdRoute =
     path: '/timeline/$eventId',
     getParentRoute: () => VehiclesVehicleIdRoute,
   } as any)
+const ShareGrantTokenRecordsRecordTypeRecordIdRoute =
+  ShareGrantTokenRecordsRecordTypeRecordIdRouteImport.update({
+    id: '/records/$recordType/$recordId',
+    path: '/records/$recordType/$recordId',
+    getParentRoute: () => ShareGrantTokenRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -169,10 +222,17 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof ResetPasswordRoute
   '/sign-in': typeof SignInRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/share/$grantToken': typeof ShareGrantTokenRouteWithChildren
   '/vehicles/$vehicleId': typeof VehiclesVehicleIdRouteWithChildren
   '/vehicles/add': typeof VehiclesAddRoute
+  '/vehicles/$vehicleId/baseline': typeof VehiclesVehicleIdBaselineRoute
   '/vehicles/$vehicleId/check': typeof VehiclesVehicleIdCheckRoute
+  '/vehicles/$vehicleId/mileage': typeof VehiclesVehicleIdMileageRoute
+  '/vehicles/$vehicleId/profile': typeof VehiclesVehicleIdProfileRoute
   '/vehicles/$vehicleId/recalls': typeof VehiclesVehicleIdRecallsRoute
+  '/vehicles/$vehicleId/shares': typeof VehiclesVehicleIdSharesRoute
+  '/vehicles/$vehicleId/summary': typeof VehiclesVehicleIdSummaryRoute
+  '/share/$grantToken/': typeof ShareGrantTokenIndexRoute
   '/vehicles/$vehicleId/': typeof VehiclesVehicleIdIndexRoute
   '/vehicles/$vehicleId/changes/new': typeof VehiclesVehicleIdChangesNewRoute
   '/vehicles/$vehicleId/documents/upload': typeof VehiclesVehicleIdDocumentsUploadRoute
@@ -184,6 +244,7 @@ export interface FileRoutesByFullPath {
   '/vehicles/$vehicleId/health/': typeof VehiclesVehicleIdHealthIndexRoute
   '/vehicles/$vehicleId/maintenance/': typeof VehiclesVehicleIdMaintenanceIndexRoute
   '/vehicles/$vehicleId/timeline/': typeof VehiclesVehicleIdTimelineIndexRoute
+  '/share/$grantToken/records/$recordType/$recordId': typeof ShareGrantTokenRecordsRecordTypeRecordIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -195,8 +256,14 @@ export interface FileRoutesByTo {
   '/sign-in': typeof SignInRoute
   '/verify-email': typeof VerifyEmailRoute
   '/vehicles/add': typeof VehiclesAddRoute
+  '/vehicles/$vehicleId/baseline': typeof VehiclesVehicleIdBaselineRoute
   '/vehicles/$vehicleId/check': typeof VehiclesVehicleIdCheckRoute
+  '/vehicles/$vehicleId/mileage': typeof VehiclesVehicleIdMileageRoute
+  '/vehicles/$vehicleId/profile': typeof VehiclesVehicleIdProfileRoute
   '/vehicles/$vehicleId/recalls': typeof VehiclesVehicleIdRecallsRoute
+  '/vehicles/$vehicleId/shares': typeof VehiclesVehicleIdSharesRoute
+  '/vehicles/$vehicleId/summary': typeof VehiclesVehicleIdSummaryRoute
+  '/share/$grantToken': typeof ShareGrantTokenIndexRoute
   '/vehicles/$vehicleId': typeof VehiclesVehicleIdIndexRoute
   '/vehicles/$vehicleId/changes/new': typeof VehiclesVehicleIdChangesNewRoute
   '/vehicles/$vehicleId/documents/upload': typeof VehiclesVehicleIdDocumentsUploadRoute
@@ -208,6 +275,7 @@ export interface FileRoutesByTo {
   '/vehicles/$vehicleId/health': typeof VehiclesVehicleIdHealthIndexRoute
   '/vehicles/$vehicleId/maintenance': typeof VehiclesVehicleIdMaintenanceIndexRoute
   '/vehicles/$vehicleId/timeline': typeof VehiclesVehicleIdTimelineIndexRoute
+  '/share/$grantToken/records/$recordType/$recordId': typeof ShareGrantTokenRecordsRecordTypeRecordIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -219,10 +287,17 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/sign-in': typeof SignInRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/share/$grantToken': typeof ShareGrantTokenRouteWithChildren
   '/vehicles/$vehicleId': typeof VehiclesVehicleIdRouteWithChildren
   '/vehicles/add': typeof VehiclesAddRoute
+  '/vehicles/$vehicleId/baseline': typeof VehiclesVehicleIdBaselineRoute
   '/vehicles/$vehicleId/check': typeof VehiclesVehicleIdCheckRoute
+  '/vehicles/$vehicleId/mileage': typeof VehiclesVehicleIdMileageRoute
+  '/vehicles/$vehicleId/profile': typeof VehiclesVehicleIdProfileRoute
   '/vehicles/$vehicleId/recalls': typeof VehiclesVehicleIdRecallsRoute
+  '/vehicles/$vehicleId/shares': typeof VehiclesVehicleIdSharesRoute
+  '/vehicles/$vehicleId/summary': typeof VehiclesVehicleIdSummaryRoute
+  '/share/$grantToken/': typeof ShareGrantTokenIndexRoute
   '/vehicles/$vehicleId/': typeof VehiclesVehicleIdIndexRoute
   '/vehicles/$vehicleId/changes/new': typeof VehiclesVehicleIdChangesNewRoute
   '/vehicles/$vehicleId/documents/upload': typeof VehiclesVehicleIdDocumentsUploadRoute
@@ -234,6 +309,7 @@ export interface FileRoutesById {
   '/vehicles/$vehicleId/health/': typeof VehiclesVehicleIdHealthIndexRoute
   '/vehicles/$vehicleId/maintenance/': typeof VehiclesVehicleIdMaintenanceIndexRoute
   '/vehicles/$vehicleId/timeline/': typeof VehiclesVehicleIdTimelineIndexRoute
+  '/share/$grantToken/records/$recordType/$recordId': typeof ShareGrantTokenRecordsRecordTypeRecordIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -246,10 +322,17 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/sign-in'
     | '/verify-email'
+    | '/share/$grantToken'
     | '/vehicles/$vehicleId'
     | '/vehicles/add'
+    | '/vehicles/$vehicleId/baseline'
     | '/vehicles/$vehicleId/check'
+    | '/vehicles/$vehicleId/mileage'
+    | '/vehicles/$vehicleId/profile'
     | '/vehicles/$vehicleId/recalls'
+    | '/vehicles/$vehicleId/shares'
+    | '/vehicles/$vehicleId/summary'
+    | '/share/$grantToken/'
     | '/vehicles/$vehicleId/'
     | '/vehicles/$vehicleId/changes/new'
     | '/vehicles/$vehicleId/documents/upload'
@@ -261,6 +344,7 @@ export interface FileRouteTypes {
     | '/vehicles/$vehicleId/health/'
     | '/vehicles/$vehicleId/maintenance/'
     | '/vehicles/$vehicleId/timeline/'
+    | '/share/$grantToken/records/$recordType/$recordId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -272,8 +356,14 @@ export interface FileRouteTypes {
     | '/sign-in'
     | '/verify-email'
     | '/vehicles/add'
+    | '/vehicles/$vehicleId/baseline'
     | '/vehicles/$vehicleId/check'
+    | '/vehicles/$vehicleId/mileage'
+    | '/vehicles/$vehicleId/profile'
     | '/vehicles/$vehicleId/recalls'
+    | '/vehicles/$vehicleId/shares'
+    | '/vehicles/$vehicleId/summary'
+    | '/share/$grantToken'
     | '/vehicles/$vehicleId'
     | '/vehicles/$vehicleId/changes/new'
     | '/vehicles/$vehicleId/documents/upload'
@@ -285,6 +375,7 @@ export interface FileRouteTypes {
     | '/vehicles/$vehicleId/health'
     | '/vehicles/$vehicleId/maintenance'
     | '/vehicles/$vehicleId/timeline'
+    | '/share/$grantToken/records/$recordType/$recordId'
   id:
     | '__root__'
     | '/'
@@ -295,10 +386,17 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/sign-in'
     | '/verify-email'
+    | '/share/$grantToken'
     | '/vehicles/$vehicleId'
     | '/vehicles/add'
+    | '/vehicles/$vehicleId/baseline'
     | '/vehicles/$vehicleId/check'
+    | '/vehicles/$vehicleId/mileage'
+    | '/vehicles/$vehicleId/profile'
     | '/vehicles/$vehicleId/recalls'
+    | '/vehicles/$vehicleId/shares'
+    | '/vehicles/$vehicleId/summary'
+    | '/share/$grantToken/'
     | '/vehicles/$vehicleId/'
     | '/vehicles/$vehicleId/changes/new'
     | '/vehicles/$vehicleId/documents/upload'
@@ -310,6 +408,7 @@ export interface FileRouteTypes {
     | '/vehicles/$vehicleId/health/'
     | '/vehicles/$vehicleId/maintenance/'
     | '/vehicles/$vehicleId/timeline/'
+    | '/share/$grantToken/records/$recordType/$recordId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -321,6 +420,7 @@ export interface RootRouteChildren {
   ResetPasswordRoute: typeof ResetPasswordRoute
   SignInRoute: typeof SignInRoute
   VerifyEmailRoute: typeof VerifyEmailRoute
+  ShareGrantTokenRoute: typeof ShareGrantTokenRouteWithChildren
   VehiclesVehicleIdRoute: typeof VehiclesVehicleIdRouteWithChildren
   VehiclesAddRoute: typeof VehiclesAddRoute
 }
@@ -383,6 +483,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VerifyEmailRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/share/$grantToken': {
+      id: '/share/$grantToken'
+      path: '/share/$grantToken'
+      fullPath: '/share/$grantToken'
+      preLoaderRoute: typeof ShareGrantTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/vehicles/$vehicleId': {
       id: '/vehicles/$vehicleId'
       path: '/vehicles/$vehicleId'
@@ -397,11 +504,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VehiclesAddRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/share/$grantToken/': {
+      id: '/share/$grantToken/'
+      path: '/'
+      fullPath: '/share/$grantToken/'
+      preLoaderRoute: typeof ShareGrantTokenIndexRouteImport
+      parentRoute: typeof ShareGrantTokenRoute
+    }
     '/vehicles/$vehicleId/': {
       id: '/vehicles/$vehicleId/'
       path: '/'
       fullPath: '/vehicles/$vehicleId/'
       preLoaderRoute: typeof VehiclesVehicleIdIndexRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/baseline': {
+      id: '/vehicles/$vehicleId/baseline'
+      path: '/baseline'
+      fullPath: '/vehicles/$vehicleId/baseline'
+      preLoaderRoute: typeof VehiclesVehicleIdBaselineRouteImport
       parentRoute: typeof VehiclesVehicleIdRoute
     }
     '/vehicles/$vehicleId/check': {
@@ -411,11 +532,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VehiclesVehicleIdCheckRouteImport
       parentRoute: typeof VehiclesVehicleIdRoute
     }
+    '/vehicles/$vehicleId/mileage': {
+      id: '/vehicles/$vehicleId/mileage'
+      path: '/mileage'
+      fullPath: '/vehicles/$vehicleId/mileage'
+      preLoaderRoute: typeof VehiclesVehicleIdMileageRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/profile': {
+      id: '/vehicles/$vehicleId/profile'
+      path: '/profile'
+      fullPath: '/vehicles/$vehicleId/profile'
+      preLoaderRoute: typeof VehiclesVehicleIdProfileRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
     '/vehicles/$vehicleId/recalls': {
       id: '/vehicles/$vehicleId/recalls'
       path: '/recalls'
       fullPath: '/vehicles/$vehicleId/recalls'
       preLoaderRoute: typeof VehiclesVehicleIdRecallsRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/shares': {
+      id: '/vehicles/$vehicleId/shares'
+      path: '/shares'
+      fullPath: '/vehicles/$vehicleId/shares'
+      preLoaderRoute: typeof VehiclesVehicleIdSharesRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/summary': {
+      id: '/vehicles/$vehicleId/summary'
+      path: '/summary'
+      fullPath: '/vehicles/$vehicleId/summary'
+      preLoaderRoute: typeof VehiclesVehicleIdSummaryRouteImport
       parentRoute: typeof VehiclesVehicleIdRoute
     }
     '/vehicles/$vehicleId/changes/new': {
@@ -488,12 +637,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VehiclesVehicleIdTimelineEventIdRouteImport
       parentRoute: typeof VehiclesVehicleIdRoute
     }
+    '/share/$grantToken/records/$recordType/$recordId': {
+      id: '/share/$grantToken/records/$recordType/$recordId'
+      path: '/records/$recordType/$recordId'
+      fullPath: '/share/$grantToken/records/$recordType/$recordId'
+      preLoaderRoute: typeof ShareGrantTokenRecordsRecordTypeRecordIdRouteImport
+      parentRoute: typeof ShareGrantTokenRoute
+    }
   }
 }
 
+interface ShareGrantTokenRouteChildren {
+  ShareGrantTokenIndexRoute: typeof ShareGrantTokenIndexRoute
+  ShareGrantTokenRecordsRecordTypeRecordIdRoute: typeof ShareGrantTokenRecordsRecordTypeRecordIdRoute
+}
+
+const ShareGrantTokenRouteChildren: ShareGrantTokenRouteChildren = {
+  ShareGrantTokenIndexRoute: ShareGrantTokenIndexRoute,
+  ShareGrantTokenRecordsRecordTypeRecordIdRoute:
+    ShareGrantTokenRecordsRecordTypeRecordIdRoute,
+}
+
+const ShareGrantTokenRouteWithChildren = ShareGrantTokenRoute._addFileChildren(
+  ShareGrantTokenRouteChildren,
+)
+
 interface VehiclesVehicleIdRouteChildren {
+  VehiclesVehicleIdBaselineRoute: typeof VehiclesVehicleIdBaselineRoute
   VehiclesVehicleIdCheckRoute: typeof VehiclesVehicleIdCheckRoute
+  VehiclesVehicleIdMileageRoute: typeof VehiclesVehicleIdMileageRoute
+  VehiclesVehicleIdProfileRoute: typeof VehiclesVehicleIdProfileRoute
   VehiclesVehicleIdRecallsRoute: typeof VehiclesVehicleIdRecallsRoute
+  VehiclesVehicleIdSharesRoute: typeof VehiclesVehicleIdSharesRoute
+  VehiclesVehicleIdSummaryRoute: typeof VehiclesVehicleIdSummaryRoute
   VehiclesVehicleIdIndexRoute: typeof VehiclesVehicleIdIndexRoute
   VehiclesVehicleIdChangesNewRoute: typeof VehiclesVehicleIdChangesNewRoute
   VehiclesVehicleIdDocumentsUploadRoute: typeof VehiclesVehicleIdDocumentsUploadRoute
@@ -508,8 +684,13 @@ interface VehiclesVehicleIdRouteChildren {
 }
 
 const VehiclesVehicleIdRouteChildren: VehiclesVehicleIdRouteChildren = {
+  VehiclesVehicleIdBaselineRoute: VehiclesVehicleIdBaselineRoute,
   VehiclesVehicleIdCheckRoute: VehiclesVehicleIdCheckRoute,
+  VehiclesVehicleIdMileageRoute: VehiclesVehicleIdMileageRoute,
+  VehiclesVehicleIdProfileRoute: VehiclesVehicleIdProfileRoute,
   VehiclesVehicleIdRecallsRoute: VehiclesVehicleIdRecallsRoute,
+  VehiclesVehicleIdSharesRoute: VehiclesVehicleIdSharesRoute,
+  VehiclesVehicleIdSummaryRoute: VehiclesVehicleIdSummaryRoute,
   VehiclesVehicleIdIndexRoute: VehiclesVehicleIdIndexRoute,
   VehiclesVehicleIdChangesNewRoute: VehiclesVehicleIdChangesNewRoute,
   VehiclesVehicleIdDocumentsUploadRoute: VehiclesVehicleIdDocumentsUploadRoute,
@@ -539,6 +720,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResetPasswordRoute: ResetPasswordRoute,
   SignInRoute: SignInRoute,
   VerifyEmailRoute: VerifyEmailRoute,
+  ShareGrantTokenRoute: ShareGrantTokenRouteWithChildren,
   VehiclesVehicleIdRoute: VehiclesVehicleIdRouteWithChildren,
   VehiclesAddRoute: VehiclesAddRoute,
 }
