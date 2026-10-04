@@ -58,7 +58,7 @@ export function StatusBadge({ status }: { status: Status }) {
   );
 }
 
-export function Provenance({ source, date, mileage }: { source?: Source; date?: string; mileage?: number }) {
+export function Provenance({ source, date, mileage }: { source?: Source | undefined; date?: string | undefined; mileage?: number | undefined }) {
   if (!source && !date) return <p className="text-xs text-muted-foreground">No source recorded</p>;
   return (
     <p className="flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-muted-foreground">
