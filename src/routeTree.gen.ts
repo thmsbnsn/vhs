@@ -17,7 +17,13 @@ import { Route as GarageRouteImport } from './routes/garage'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as SignInRouteImport } from './routes/sign-in'
 import { Route as VerifyEmailRouteImport } from './routes/verify-email'
+import { Route as VehiclesVehicleIdRouteImport } from './routes/vehicles.$vehicleId'
 import { Route as VehiclesAddRouteImport } from './routes/vehicles.add'
+import { Route as VehiclesVehicleIdIndexRouteImport } from './routes/vehicles.$vehicleId.index'
+import { Route as VehiclesVehicleIdHealthIndexRouteImport } from './routes/vehicles.$vehicleId.health.index'
+import { Route as VehiclesVehicleIdHealthComponentIdRouteImport } from './routes/vehicles.$vehicleId.health.$componentId'
+import { Route as VehiclesVehicleIdTimelineIndexRouteImport } from './routes/vehicles.$vehicleId.timeline.index'
+import { Route as VehiclesVehicleIdTimelineEventIdRouteImport } from './routes/vehicles.$vehicleId.timeline.$eventId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -59,11 +65,45 @@ const VerifyEmailRoute = VerifyEmailRouteImport.update({
   path: '/verify-email',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VehiclesVehicleIdRoute = VehiclesVehicleIdRouteImport.update({
+  id: '/vehicles/$vehicleId',
+  path: '/vehicles/$vehicleId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VehiclesAddRoute = VehiclesAddRouteImport.update({
   id: '/vehicles/add',
   path: '/vehicles/add',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VehiclesVehicleIdIndexRoute = VehiclesVehicleIdIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => VehiclesVehicleIdRoute,
+} as any)
+const VehiclesVehicleIdHealthIndexRoute =
+  VehiclesVehicleIdHealthIndexRouteImport.update({
+    id: '/health/',
+    path: '/health/',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdHealthComponentIdRoute =
+  VehiclesVehicleIdHealthComponentIdRouteImport.update({
+    id: '/health/$componentId',
+    path: '/health/$componentId',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdTimelineIndexRoute =
+  VehiclesVehicleIdTimelineIndexRouteImport.update({
+    id: '/timeline/',
+    path: '/timeline/',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
+const VehiclesVehicleIdTimelineEventIdRoute =
+  VehiclesVehicleIdTimelineEventIdRouteImport.update({
+    id: '/timeline/$eventId',
+    path: '/timeline/$eventId',
+    getParentRoute: () => VehiclesVehicleIdRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -74,7 +114,13 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof ResetPasswordRoute
   '/sign-in': typeof SignInRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/vehicles/$vehicleId': typeof VehiclesVehicleIdRouteWithChildren
   '/vehicles/add': typeof VehiclesAddRoute
+  '/vehicles/$vehicleId/': typeof VehiclesVehicleIdIndexRoute
+  '/vehicles/$vehicleId/health/$componentId': typeof VehiclesVehicleIdHealthComponentIdRoute
+  '/vehicles/$vehicleId/timeline/$eventId': typeof VehiclesVehicleIdTimelineEventIdRoute
+  '/vehicles/$vehicleId/health/': typeof VehiclesVehicleIdHealthIndexRoute
+  '/vehicles/$vehicleId/timeline/': typeof VehiclesVehicleIdTimelineIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +132,11 @@ export interface FileRoutesByTo {
   '/sign-in': typeof SignInRoute
   '/verify-email': typeof VerifyEmailRoute
   '/vehicles/add': typeof VehiclesAddRoute
+  '/vehicles/$vehicleId': typeof VehiclesVehicleIdIndexRoute
+  '/vehicles/$vehicleId/health/$componentId': typeof VehiclesVehicleIdHealthComponentIdRoute
+  '/vehicles/$vehicleId/timeline/$eventId': typeof VehiclesVehicleIdTimelineEventIdRoute
+  '/vehicles/$vehicleId/health': typeof VehiclesVehicleIdHealthIndexRoute
+  '/vehicles/$vehicleId/timeline': typeof VehiclesVehicleIdTimelineIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -97,7 +148,13 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/sign-in': typeof SignInRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/vehicles/$vehicleId': typeof VehiclesVehicleIdRouteWithChildren
   '/vehicles/add': typeof VehiclesAddRoute
+  '/vehicles/$vehicleId/': typeof VehiclesVehicleIdIndexRoute
+  '/vehicles/$vehicleId/health/$componentId': typeof VehiclesVehicleIdHealthComponentIdRoute
+  '/vehicles/$vehicleId/timeline/$eventId': typeof VehiclesVehicleIdTimelineEventIdRoute
+  '/vehicles/$vehicleId/health/': typeof VehiclesVehicleIdHealthIndexRoute
+  '/vehicles/$vehicleId/timeline/': typeof VehiclesVehicleIdTimelineIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -110,7 +167,13 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/sign-in'
     | '/verify-email'
+    | '/vehicles/$vehicleId'
     | '/vehicles/add'
+    | '/vehicles/$vehicleId/'
+    | '/vehicles/$vehicleId/health/$componentId'
+    | '/vehicles/$vehicleId/timeline/$eventId'
+    | '/vehicles/$vehicleId/health/'
+    | '/vehicles/$vehicleId/timeline/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +185,11 @@ export interface FileRouteTypes {
     | '/sign-in'
     | '/verify-email'
     | '/vehicles/add'
+    | '/vehicles/$vehicleId'
+    | '/vehicles/$vehicleId/health/$componentId'
+    | '/vehicles/$vehicleId/timeline/$eventId'
+    | '/vehicles/$vehicleId/health'
+    | '/vehicles/$vehicleId/timeline'
   id:
     | '__root__'
     | '/'
@@ -132,7 +200,13 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/sign-in'
     | '/verify-email'
+    | '/vehicles/$vehicleId'
     | '/vehicles/add'
+    | '/vehicles/$vehicleId/'
+    | '/vehicles/$vehicleId/health/$componentId'
+    | '/vehicles/$vehicleId/timeline/$eventId'
+    | '/vehicles/$vehicleId/health/'
+    | '/vehicles/$vehicleId/timeline/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -144,6 +218,7 @@ export interface RootRouteChildren {
   ResetPasswordRoute: typeof ResetPasswordRoute
   SignInRoute: typeof SignInRoute
   VerifyEmailRoute: typeof VerifyEmailRoute
+  VehiclesVehicleIdRoute: typeof VehiclesVehicleIdRouteWithChildren
   VehiclesAddRoute: typeof VehiclesAddRoute
 }
 
@@ -205,6 +280,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VerifyEmailRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vehicles/$vehicleId': {
+      id: '/vehicles/$vehicleId'
+      path: '/vehicles/$vehicleId'
+      fullPath: '/vehicles/$vehicleId'
+      preLoaderRoute: typeof VehiclesVehicleIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/vehicles/add': {
       id: '/vehicles/add'
       path: '/vehicles/add'
@@ -212,8 +294,63 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VehiclesAddRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vehicles/$vehicleId/': {
+      id: '/vehicles/$vehicleId/'
+      path: '/'
+      fullPath: '/vehicles/$vehicleId/'
+      preLoaderRoute: typeof VehiclesVehicleIdIndexRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/health/': {
+      id: '/vehicles/$vehicleId/health/'
+      path: '/health'
+      fullPath: '/vehicles/$vehicleId/health/'
+      preLoaderRoute: typeof VehiclesVehicleIdHealthIndexRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/health/$componentId': {
+      id: '/vehicles/$vehicleId/health/$componentId'
+      path: '/health/$componentId'
+      fullPath: '/vehicles/$vehicleId/health/$componentId'
+      preLoaderRoute: typeof VehiclesVehicleIdHealthComponentIdRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/timeline/': {
+      id: '/vehicles/$vehicleId/timeline/'
+      path: '/timeline'
+      fullPath: '/vehicles/$vehicleId/timeline/'
+      preLoaderRoute: typeof VehiclesVehicleIdTimelineIndexRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
+    '/vehicles/$vehicleId/timeline/$eventId': {
+      id: '/vehicles/$vehicleId/timeline/$eventId'
+      path: '/timeline/$eventId'
+      fullPath: '/vehicles/$vehicleId/timeline/$eventId'
+      preLoaderRoute: typeof VehiclesVehicleIdTimelineEventIdRouteImport
+      parentRoute: typeof VehiclesVehicleIdRoute
+    }
   }
 }
+
+interface VehiclesVehicleIdRouteChildren {
+  VehiclesVehicleIdIndexRoute: typeof VehiclesVehicleIdIndexRoute
+  VehiclesVehicleIdHealthComponentIdRoute: typeof VehiclesVehicleIdHealthComponentIdRoute
+  VehiclesVehicleIdTimelineEventIdRoute: typeof VehiclesVehicleIdTimelineEventIdRoute
+  VehiclesVehicleIdHealthIndexRoute: typeof VehiclesVehicleIdHealthIndexRoute
+  VehiclesVehicleIdTimelineIndexRoute: typeof VehiclesVehicleIdTimelineIndexRoute
+}
+
+const VehiclesVehicleIdRouteChildren: VehiclesVehicleIdRouteChildren = {
+  VehiclesVehicleIdIndexRoute: VehiclesVehicleIdIndexRoute,
+  VehiclesVehicleIdHealthComponentIdRoute:
+    VehiclesVehicleIdHealthComponentIdRoute,
+  VehiclesVehicleIdTimelineEventIdRoute: VehiclesVehicleIdTimelineEventIdRoute,
+  VehiclesVehicleIdHealthIndexRoute: VehiclesVehicleIdHealthIndexRoute,
+  VehiclesVehicleIdTimelineIndexRoute: VehiclesVehicleIdTimelineIndexRoute,
+}
+
+const VehiclesVehicleIdRouteWithChildren =
+  VehiclesVehicleIdRoute._addFileChildren(VehiclesVehicleIdRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -224,6 +361,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResetPasswordRoute: ResetPasswordRoute,
   SignInRoute: SignInRoute,
   VerifyEmailRoute: VerifyEmailRoute,
+  VehiclesVehicleIdRoute: VehiclesVehicleIdRouteWithChildren,
   VehiclesAddRoute: VehiclesAddRoute,
 }
 export const routeTree = rootRouteImport
